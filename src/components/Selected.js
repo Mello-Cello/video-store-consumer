@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CustomerList from './CustomerList';
-import MovieList from './MovieList';
+import Library from './Library';
 
 function Selected() {
     return <h2>Selected</h2>

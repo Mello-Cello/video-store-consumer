@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import CustomerList from './components/CustomerList';
-import MovieList from './components/MovieList';
+import Library from './components/Library';
 import Selected from './components/Selected';
 import SearchTMDB from './components/SearchTMDB';
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
@@ -27,8 +27,7 @@ class App extends Component {
                 <Link to="/customers">Customer List</Link>
               </li>
               <li>
-                <Link to="/movies">Movie List</Link>
-                <MovieList />
+                <Link to="/library">Library</Link>
               </li>
             </ul>
           </nav>
@@ -37,7 +36,7 @@ class App extends Component {
           {/* <Route path="/" exact component={App} /> */}
           <Route path="/search" component={SearchTMDB} />
           <Route path="/customers" component={CustomerList} />
-          <Route path="/movies" component={MovieList} />
+          <Route path="/library" component={Library} />
         </div>
         {/* </Root> */}
       </Router>
