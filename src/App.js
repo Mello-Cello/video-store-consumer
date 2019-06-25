@@ -28,9 +28,7 @@ class App extends Component {
               </li>
               <li>
                 <Link to="/library">Library</Link>
-                {Library}
-                
-              
+    
               </li>
             </ul>
           </nav>
