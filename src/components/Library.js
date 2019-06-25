@@ -46,8 +46,8 @@ class Library extends Component {
        const eachMovie = this.state.movies.map((movie, i) => {
            return (
            <div>
-           <h2>{movie.title}</h2>
-            </div>     
+            <p>{movie.title} <button>Select: {movie.title}</button> </p>
+           </div>     
             )
        })
         const errors = this.state.error;

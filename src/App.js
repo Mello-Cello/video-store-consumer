@@ -9,7 +9,15 @@ import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 
 class App extends Component {
 
-  
+  constructor() {
+    super();
+
+    this.state = {
+        selected_movie: this.movie,
+        selected_customer: this.customer, 
+        errorMessage: null,
+    }
+}
   render() {
     return (
       <Router>
@@ -32,9 +40,7 @@ class App extends Component {
               </li>
             </ul>
           </nav>
-          
-
-
+        
           <Route path="/search" component={SearchTMDB} />
           <Route path="/customers" component={CustomerList} />
           <Route path="/library" component={Library} />
