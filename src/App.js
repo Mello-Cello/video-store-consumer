@@ -13,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        {/* <Root> */}
+
         <div>
           <nav>
             <ul>
@@ -28,17 +28,19 @@ class App extends Component {
               </li>
               <li>
                 <Link to="/library">Library</Link>
+                {Library}
+                
+              
               </li>
             </ul>
           </nav>
           
 
-          {/* <Route path="/" exact component={App} /> */}
+
           <Route path="/search" component={SearchTMDB} />
           <Route path="/customers" component={CustomerList} />
           <Route path="/library" component={Library} />
         </div>
-        {/* </Root> */}
       </Router>
     );
   }
