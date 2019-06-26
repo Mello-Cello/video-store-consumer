@@ -47,20 +47,20 @@ class Library extends Component {
         );
         console.log(movie.title)
     }
-
-
     // make a callback function for selectedHandler
     // selectedHandlerCallback=selectedHandler
-    render() {
     
+    render() {
        const eachMovie = this.state.movies.map((movie, i) => {
            return (
            <div>
-            {movie.title} <button onClick={()=>this.handleMovieSelection(movie)}>Select Movie</button>
+            {movie.title} <button onClick={()=>this.handleMovieSelection(movie)}> Select Movie </button>
            </div>     
             )
 
        })
+    
+       
         const errors = this.state.error;
 
         return (
@@ -70,6 +70,8 @@ class Library extends Component {
             </section>
         )
     }
+    
+
       
 }
 export default Library;

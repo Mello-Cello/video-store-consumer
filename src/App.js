@@ -21,8 +21,6 @@ class App extends Component {
 //selectId function that sets state for the movie ID
 selectedObject = (movie) => {
   //this.setState updates the state and re-renders
-  
-
   this.setState({
     
     selectedMovie: movie
@@ -61,8 +59,8 @@ selectedObject = (movie) => {
         </div>
       </Router>
       <div> 
-        
-        <Selected selectedObjectCallback={this.selectedObject} 
+
+        <Selected showSelection={this.state.selectedMovie} 
          />
       </div>
       </section>
