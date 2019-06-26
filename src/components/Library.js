@@ -21,7 +21,6 @@ class Library extends Component {
         const moviesURL = 'http://localhost:3001/movies'; 
         axios.get(moviesURL)
             .then((response) => {
-                console.log(response.data);
                 const movies = response.data.map((movieInfo) => {
                     return {
                       id: movieInfo.id,
@@ -30,8 +29,7 @@ class Library extends Component {
                       release_date: movieInfo.release_date,
                       image_url: movieInfo.image_url,
                       extrenal_id: movieInfo.extrenal_id,  
-                    }
-                
+                    }   
                 })
                 this.setState({
                     movies: movies,
@@ -41,25 +39,37 @@ class Library extends Component {
                console.log(error.message)
             });
     };
- 
+
+    handleMovieSelection = movie => {
+        // const pickedMovie = this.state.movies.id
+        this.props.selectedMovieCallback(
+            movie.title
+        );
+        console.log(movie.title)
+    }
+
+
+    // make a callback function for selectedHandler
+    // selectedHandlerCallback=selectedHandler
     render() {
+    
        const eachMovie = this.state.movies.map((movie, i) => {
            return (
            <div>
-            <p>{movie.title} <button>Select: {movie.title}</button> </p>
+            {movie.title} <button onClick={()=>this.handleMovieSelection(movie)}>Select Movie</button>
            </div>     
             )
+
        })
         const errors = this.state.error;
-      
+
         return (
             <section> 
+                <h1>All Movies</h1>    
                 {eachMovie}
             </section>
         )
     }
-    
-
       
 }
 export default Library;

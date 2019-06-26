@@ -13,15 +13,30 @@ class App extends Component {
     super();
 
     this.state = {
-        selected_movie: this.movie,
-        selected_customer: this.customer, 
-        errorMessage: null,
+        selectedMovie: '',
+        selectedCustomer: [], 
+        message: '',
     }
 }
+//selectId function that sets state for the movie ID
+selectedObject = (movie) => {
+  //this.setState updates the state and re-renders
+  
+
+  this.setState({
+    
+    selectedMovie: movie
+   
+  })
+  console.log(this.selectedMovie)
+}
+
+
   render() {
     return (
+      <section>
+        <Library selectedMovieCallback={this.selectedObject} />
       <Router>
-
         <div>
           <nav>
             <ul>
@@ -36,7 +51,6 @@ class App extends Component {
               </li>
               <li>
                 <Link to="/library">Library</Link>
-    
               </li>
             </ul>
           </nav>
@@ -46,6 +60,12 @@ class App extends Component {
           <Route path="/library" component={Library} />
         </div>
       </Router>
+      <div> 
+        
+        <Selected selectedObjectCallback={this.selectedObject} 
+         />
+      </div>
+      </section>
     );
   }
 }
