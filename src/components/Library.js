@@ -47,6 +47,7 @@ class Library extends Component {
         );
         console.log(movie.title)
     }
+
     // make a callback function for selectedHandler
     // selectedHandlerCallback=selectedHandler
     

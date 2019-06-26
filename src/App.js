@@ -26,7 +26,7 @@ selectedObject = (movie) => {
     selectedMovie: movie
    
   })
-  console.log(this.selectedMovie)
+
 }
 
 
@@ -53,12 +53,13 @@ selectedObject = (movie) => {
             </ul>
           </nav>
         
-          <Route path="/search" component={SearchTMDB} />
-          <Route path="/customers" component={CustomerList} />
-          <Route path="/library" component={Library} 
+          <Route path="/search"/>
+          <Route path="/customers"/>
+          <Route path="/library" 
           render={(props) => 
             <Library selectedMovieCallback={this.selectedObject} 
-            isAuthed={true}/>
+            isAuthed={true}
+            />
           }
           />
         </div>
