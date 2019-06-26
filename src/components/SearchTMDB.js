@@ -10,8 +10,8 @@ class SearchTMDB extends Component {
        this.state = {
            movieAddToRentalLib: null,
            searchMovie: "",
-           apiKey: process.env.REACT_APP_MOVIEDB_KEY,
-           baseURL: "http://localhost:3001/"
+           searchResults: [],
+           apiError: null
        };
    }
 
@@ -28,15 +28,32 @@ class SearchTMDB extends Component {
     if (this.state.searchMovie) {
         axios.get('http://localhost:3001/movies?query=' + this.state.searchMovie)
         .then((response) => {
-           console.log(response);
+            const updatedMovieList = response.data
+           
+            this.setState({
+                searchResults: updatedMovieList
+            });
        })
+       .catch((error) => {
+           this.setState({
+               apiError: error.message
+           })
+       });
+           
         }
        
    }
-   
 
    render() {
-       
+        const eachMovie = this.state.searchResults.map((movie, i) => {
+            return (
+                <div>
+                    <p key={i}>{movie.title} <button>Add To Rental Library</button> </p>
+                </div>     
+            )      
+        })
+
+       const errorSection = (this.state.apiError) ? (<section> Error: {this.state.apiError}</section>) : null;
     return (
         <main>
             <h2>Movie Search Page</h2>
@@ -44,11 +61,13 @@ class SearchTMDB extends Component {
             <lable>
                 Movie Title:
                 <input 
-                type="text"
+                type="text" 
                 onChange={this.onSearchChange}>
                 </input>
             </lable>
             <input type="submit" name="submit" value="Search" onClick={this.onSearchButtonHandler} />
+            {errorSection}
+            {eachMovie}
         </main>
         )
     }
