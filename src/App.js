@@ -9,11 +9,19 @@ import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 
 class App extends Component {
 
-  
+  constructor() {
+    super();
+
+    this.state = {
+        selected_movie: this.movie,
+        selected_customer: this.customer, 
+        errorMessage: null,
+    }
+}
   render() {
     return (
       <Router>
-        {/* <Root> */}
+
         <div>
           <nav>
             <ul>
@@ -28,17 +36,15 @@ class App extends Component {
               </li>
               <li>
                 <Link to="/library">Library</Link>
+    
               </li>
             </ul>
           </nav>
-          
-
-          {/* <Route path="/" exact component={App} /> */}
+        
           <Route path="/search" component={SearchTMDB} />
           <Route path="/customers" component={CustomerList} />
           <Route path="/library" component={Library} />
         </div>
-        {/* </Root> */}
       </Router>
     );
   }
