@@ -13,15 +13,28 @@ class App extends Component {
     super();
 
     this.state = {
-        selected_movie: this.movie,
-        selected_customer: this.customer, 
-        errorMessage: null,
+        selectedMovie: '',
+        selectedCustomer: [], 
+        message: '',
     }
 }
+//selectId function that sets state for the movie ID
+selectedObject = (movie) => {
+  //this.setState updates the state and re-renders
+  this.setState({
+    
+    selectedMovie: movie
+   
+  })
+
+}
+
+
   render() {
     return (
+      <section>
+       
       <Router>
-
         <div>
           <nav>
             <ul>
@@ -36,16 +49,27 @@ class App extends Component {
               </li>
               <li>
                 <Link to="/library">Library</Link>
-    
               </li>
             </ul>
           </nav>
         
-          <Route path="/search" component={SearchTMDB} />
-          <Route path="/customers" component={CustomerList} />
-          <Route path="/library" component={Library} />
+          <Route path="/search"/>
+          <Route path="/customers"/>
+          <Route path="/library" 
+          render={(props) => 
+            <Library selectedMovieCallback={this.selectedObject} 
+            isAuthed={true}
+            />
+          }
+          />
         </div>
       </Router>
+      <div> 
+
+        <Selected showSelection={this.state.selectedMovie} 
+         />
+      </div>
+      </section>
     );
   }
 }
