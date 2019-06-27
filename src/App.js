@@ -57,7 +57,7 @@ selectedCustomerObject = (customer) => {
             </ul>
           </nav>
         
-          <Route path="/search"/>
+          <Route path="/search" component={SearchTMDB}/>
           <Route path="/customers"
           render={(props) => 
             <CustomerList selectedCustomerCallback={this.selectedCustomerObject} 
