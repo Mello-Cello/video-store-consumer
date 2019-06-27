@@ -61,10 +61,18 @@ class SearchTMDB extends Component {
     axios.post('http://localhost:3001/movies',movieDataToSendToApi)
     .then((response) => {
       console.log(response)
+      if (response.data.movie) {
         const successMessage = `Succesfully added ${response.data.movie.title}`
         this.setState({
             apiSuccess: successMessage
         })
+      } else {
+        const successMessage = response.data.errors
+        this.setState({
+            apiSuccess: successMessage
+        })
+      }
+
    })
    .catch((error) => {
      // console.log("in catch *******");
@@ -90,7 +98,7 @@ class SearchTMDB extends Component {
                 </div>
             )
         })
-        const successSection = (this.state.apiSuccess) ? (<section> Yay!{this.state.apiSuccess}</section>) : null;
+        const successSection = (this.state.apiSuccess) ? (<section> Yay! {this.state.apiSuccess}</section>) : null;
        const errorSection = (this.state.apiError) ? (<section> Error: {this.state.apiError}</section>) : null;
     return (
         <main>
