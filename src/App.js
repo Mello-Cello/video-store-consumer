@@ -14,23 +14,27 @@ class App extends Component {
 
     this.state = {
         selectedMovie: '',
-        selectedCustomer: [], 
+        selectedCustomer: '', 
         message: '',
     }
 }
 //selectId function that sets state for the movie ID
-selectedObject = (movie) => {
+selectedMovieObject = (movie) => {
   //this.setState updates the state and re-renders
   this.setState({
-    
-    selectedMovie: movie
-   
+    selectedMovie: movie,
   })
 
 }
+selectedCustomerObject = (customer) => {
+  //this.setState updates the state and re-renders
+  this.setState({   
+    selectedCustomer: customer, 
+  })
 
-
+}
   render() {
+    console.log(this.state)
     return (
       <section>
        
@@ -54,10 +58,16 @@ selectedObject = (movie) => {
           </nav>
         
           <Route path="/search"/>
-          <Route path="/customers"/>
+          <Route path="/customers"
+          render={(props) => 
+            <CustomerList selectedCustomerCallback={this.selectedCustomerObject} 
+            isAuthed={true}
+            />
+          }
+          />
           <Route path="/library" 
           render={(props) => 
-            <Library selectedMovieCallback={this.selectedObject} 
+            <Library selectedMovieCallback={this.selectedMovieObject} 
             isAuthed={true}
             />
           }
@@ -65,8 +75,8 @@ selectedObject = (movie) => {
         </div>
       </Router>
       <div> 
-
-        <Selected showSelection={this.state.selectedMovie} 
+        <Selected showMovie={this.state.selectedMovie} 
+        showCustomer={this.state.selectedCustomer}
          />
       </div>
       </section>
