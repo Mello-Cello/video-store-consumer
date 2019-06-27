@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import CustomerList from './components/CustomerList';
 import Library from './components/Library';
@@ -14,7 +14,7 @@ class App extends Component {
 
     this.state = {
         selectedMovie: '',
-        selectedCustomer: '', 
+        selectedCustomer: '',
         message: '',
     }
 }
@@ -28,8 +28,8 @@ selectedMovieObject = (movie) => {
 }
 selectedCustomerObject = (customer) => {
   //this.setState updates the state and re-renders
-  this.setState({   
-    selectedCustomer: customer, 
+  this.setState({
+    selectedCustomer: customer,
   })
 
 }
@@ -37,7 +37,7 @@ selectedCustomerObject = (customer) => {
     console.log(this.state)
     return (
       <section>
-       
+
       <Router>
         <div>
           <nav>
@@ -47,7 +47,7 @@ selectedCustomerObject = (customer) => {
               </li>
               <li>
                 <Link to="/search">Search Page</Link>
-              </li> 
+              </li>
               <li>
                 <Link to="/customers">Customer List</Link>
               </li>
@@ -56,26 +56,26 @@ selectedCustomerObject = (customer) => {
               </li>
             </ul>
           </nav>
-        
+
           <Route path="/search" component={SearchTMDB}/>
           <Route path="/customers"
-          render={(props) => 
-            <CustomerList selectedCustomerCallback={this.selectedCustomerObject} 
+          render={(props) =>
+            <CustomerList selectedCustomerCallback={this.selectedCustomerObject}
             isAuthed={true}
             />
           }
           />
-          <Route path="/library" 
-          render={(props) => 
-            <Library selectedMovieCallback={this.selectedMovieObject} 
+          <Route path="/library"
+          render={(props) =>
+            <Library selectedMovieCallback={this.selectedMovieObject}
             isAuthed={true}
             />
           }
           />
         </div>
       </Router>
-      <div> 
-        <Selected showMovie={this.state.selectedMovie} 
+      <div>
+        <Selected showMovie={this.state.selectedMovie}
         showCustomer={this.state.selectedCustomer}
          />
       </div>

@@ -1,8 +1,8 @@
 
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import axios from 'axios';
-import { createDecipher } from 'crypto'; // do we need this?
+// import { createDecipher } from 'crypto'; // do we need this?
 
 class CustomerList extends Component {
     //pass in props?
