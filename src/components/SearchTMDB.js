@@ -11,7 +11,8 @@ class SearchTMDB extends Component {
            movieAddToRentalLib: null,
            searchMovie: "",
            searchResults: [],
-           apiError: null
+           apiError: null,
+           apiSuccess: null,
        };
    }
 
@@ -44,15 +45,48 @@ class SearchTMDB extends Component {
        
    }
 
+   onAddtoRentalButtonHandler = (movie) => {
+       console.log(movie)
+    const movieDataToSendToApi ={
+            "movie": {
+              "title": movie.title,
+              "overview": movie.overview,
+              "release_date": movie.release_date,
+              "image_url": movie.image_url,
+              "external_id": movie.external_id,
+              "inventory": 1
+            }
+    }
+    
+    axios.post('http://localhost:3001/movies',movieDataToSendToApi)
+    .then((response) => {
+        const successMessage = `Succesfully added ${response.data.movie.title}`
+        this.setState({
+            apiSuccess: successMessage
+        })
+   })
+   .catch((error) => {
+       this.setState({
+           apiError: error.message
+       })
+   });
+   }
+
    render() {
         const eachMovie = this.state.searchResults.map((movie, i) => {
             return (
                 <div>
-                    <p key={i}>{movie.title} <button>Add To Rental Library</button> </p>
+                    <article key={i}>
+                        <p >{movie.title}</p>
+                        <button 
+                        onClick={() => {this.onAddtoRentalButtonHandler(movie)}}>
+                            Add To Rental Library
+                        </button> 
+                    </article>
                 </div>     
             )      
         })
-
+        const successSection = (this.state.apiSuccess) ? (<section> Yay!{this.state.apiSuccess}</section>) : null;
        const errorSection = (this.state.apiError) ? (<section> Error: {this.state.apiError}</section>) : null;
     return (
         <main>
@@ -67,6 +101,7 @@ class SearchTMDB extends Component {
             </lable>
             <input type="submit" name="submit" value="Search" onClick={this.onSearchButtonHandler} />
             {errorSection}
+            {successSection}
             {eachMovie}
         </main>
         )
