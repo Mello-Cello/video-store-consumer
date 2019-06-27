@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { createDecipher } from 'crypto'; // do we need this?
@@ -43,12 +44,18 @@ class CustomerList extends Component {
                console.log(error.message)
             });
     }
-
+        handleCustomerSelection = customer => {
+            // const pickedMovie = this.state.movies.id
+            this.props.selectedCustomerCallback(
+                customer.name
+            );
+            console.log(customer.name)
+        }
     render() {
        const renderedCustomers = this.state.customers.map((customer, i) => {
            return (
            <div key={i}>
-            <p>{customer.name} <button>Select</button> </p>
+            <p>{customer.name} <button onClick={()=>this.handleCustomerSelection(customer)}>Select</button> </p>
            </div>
             )
        })
@@ -60,8 +67,6 @@ class CustomerList extends Component {
             </section>
         )
     }
-
-
 
 }
 
