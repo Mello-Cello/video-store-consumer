@@ -30,7 +30,7 @@ class App extends Component {
               </li>
               <li>
                 <Link to="/search">Search Page</Link>
-              </li>
+              </li> 
               <li>
                 <Link to="/customers">Customer List</Link>
               </li>
