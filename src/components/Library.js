@@ -38,7 +38,7 @@ class Library extends Component {
             .catch((error) => {
                console.log(error.message)
             });
-    };
+    }
 
     handleMovieSelection = movie => {
         // const pickedMovie = this.state.movies.id
