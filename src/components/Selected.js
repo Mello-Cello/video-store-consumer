@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import CustomerList from './CustomerList';
-import Library from './Library';
+// import PropTypes from 'prop-types';
+// import CustomerList from './CustomerList';
+// import Library from './Library';
 import './Selected.css';
 
 function Selected(props) {
@@ -12,9 +12,9 @@ function Selected(props) {
       <section>
         <div className='SelectedObjectsWrapper'>
             <h3>Customer: {displayCustomer}</h3>
-            <h3>Current Movie: {displaySelection}</h3> 
-            </div> 
-      </section>   
+            <h3>Current Movie: {displaySelection}</h3>
+            </div>
+      </section>
     )
 // } else {
 //     return null
