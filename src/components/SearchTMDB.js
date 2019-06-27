@@ -62,7 +62,7 @@ class SearchTMDB extends Component {
     .then((response) => {
       console.log(response)
       if (response.data.movie) {
-        const successMessage = `Succesfully added ${response.data.movie.title}`
+        const successMessage = `Yay! Succesfully added ${response.data.movie.title}`
         this.setState({
             apiSuccess: successMessage
         })
@@ -98,7 +98,7 @@ class SearchTMDB extends Component {
                 </div>
             )
         })
-        const successSection = (this.state.apiSuccess) ? (<section> Yay! {this.state.apiSuccess}</section>) : null;
+        const successSection = (this.state.apiSuccess) ? (<section>{this.state.apiSuccess} </section>) : null;
        const errorSection = (this.state.apiError) ? (<section> Error: {this.state.apiError}</section>) : null;
     return (
         <main>
