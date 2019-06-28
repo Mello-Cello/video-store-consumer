@@ -15,6 +15,7 @@ class App extends Component {
     this.state = {
         selectedMovie: '',
         selectedCustomer: '',
+        selectedCustomerId: null,
         message: '',
     }
 }
@@ -26,10 +27,11 @@ selectedMovieObject = (movie) => {
   })
 
 }
-selectedCustomerObject = (customer) => {
+selectedCustomerObject = (customer, id) => {
   //this.setState updates the state and re-renders
   this.setState({
     selectedCustomer: customer,
+    selectedCustomerId: id
   })
 
 }
@@ -60,7 +62,8 @@ selectedCustomerObject = (customer) => {
           <Route path="/search" component={SearchTMDB}/>
           <Route path="/customers"
           render={(props) =>
-            <CustomerList selectedCustomerCallback={this.selectedCustomerObject}
+            <CustomerList
+            selectedCustomerCallback={this.selectedCustomerObject}
             isAuthed={true}
             />
           }
@@ -74,11 +77,12 @@ selectedCustomerObject = (customer) => {
           />
         </div>
       </Router>
-      <div>
-        <Selected showMovie={this.state.selectedMovie}
-        showCustomer={this.state.selectedCustomer}
-         />
-      </div>
+        <div>
+          <Selected showMovie={this.state.selectedMovie}
+          showCustomer={this.state.selectedCustomer}
+          showCustomerId={this.state.selectedCustomerId}
+           />
+        </div>
       </section>
     );
   }

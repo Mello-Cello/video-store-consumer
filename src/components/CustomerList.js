@@ -8,8 +8,8 @@ class CustomerList extends Component {
     //pass in props?
     //make a variable movies = props to pull movies array from App
     //set another variable 'allmovies' and loop through map and return
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             customers: [],
@@ -25,6 +25,7 @@ class CustomerList extends Component {
                 const customers = response.data.map((custInfo) => {
                   // const { name, registered_at, address, city, state, postal_code, phone, account_credit } = custInfo;
                     return {
+                      id: custInfo.id,
                       name: custInfo.name,// string
                       registered_at: custInfo.registered_at, // Date
                       address: custInfo.address, // string
@@ -46,10 +47,11 @@ class CustomerList extends Component {
     }
         handleCustomerSelection = customer => {
             // const pickedMovie = this.state.movies.id
+            console.log('in handle customer selection:', customer);
             this.props.selectedCustomerCallback(
-                customer.name
+                customer.name,
+                customer.id
             );
-            console.log(customer.name)
         }
     render() {
        const renderedCustomers = this.state.customers.map((customer, i) => {
