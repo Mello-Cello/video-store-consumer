@@ -55,7 +55,7 @@ class CustomerList extends Component {
        const renderedCustomers = this.state.customers.map((customer, i) => {
            return (
            <div key={i}>
-            <p>{customer.name} <button onClick={()=>this.handleCustomerSelection(customer)}>Select</button> </p>
+            <p>{customer.name} <button className="most_btns" onClick={()=>this.handleCustomerSelection(customer)}>Select</button> </p>
            </div>
             )
        })

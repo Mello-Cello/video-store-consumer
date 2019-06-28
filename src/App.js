@@ -40,23 +40,26 @@ selectedCustomerObject = (customer) => {
 
       <Router>
         <div>
-          <nav>
-            <ul>
+          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <ul className="navbar-nav">
               <li>
-                <Link to="/">Home</Link>
+                <Link className="navbar-brand" to="/">Home</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/search">Search Page</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/customers">Customer List</Link>
               </li>
               <li>
-                <Link to="/search">Search Page</Link>
+                <Link className="nav-link" to="/library">Library</Link>
               </li>
-              <li>
-                <Link to="/customers">Customer List</Link>
-              </li>
-              <li>
-                <Link to="/library">Library</Link>
-              </li>
+            
             </ul>
           </nav>
-
+          <div> <Selected  showMovie={this.state.selectedMovie}
+                showCustomer={this.state.selectedCustomer} />
+          </div>
           <Route path="/search" component={SearchTMDB}/>
           <Route path="/customers"
           render={(props) =>
@@ -75,9 +78,7 @@ selectedCustomerObject = (customer) => {
         </div>
       </Router>
       <div>
-        <Selected showMovie={this.state.selectedMovie}
-        showCustomer={this.state.selectedCustomer}
-         />
+      
       </div>
       </section>
     );

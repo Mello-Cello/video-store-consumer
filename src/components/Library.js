@@ -45,7 +45,6 @@ class Library extends Component {
         this.props.selectedMovieCallback(
             movie.title
         );
-        console.log(movie.title)
     }
 
     // make a callback function for selectedHandler
@@ -54,20 +53,30 @@ class Library extends Component {
     render() {
        const eachMovie = this.state.movies.map((movie, i) => {
            return (
-           <div key={i}>
-            {movie.title} <button onClick={()=>this.handleMovieSelection(movie)}> Select Movie </button>
+           <div className="movie_card" key={i}>
+            <ul>
+            <img src={movie.image_url} alt="movie image" className="movie_IMG" />
+            
+                <li id="title" className="movie_info">{movie.title} </li> 
+                <li>Released: {movie.release_date}</li>
+                
+                {/* <li className="movie_info">About:{movie.overview}</li> */}
+            
+                <button className="most_btns" onClick={()=>this.handleMovieSelection(movie)}> Select Movie </button>
+            </ul>
            </div>
             )
 
        })
-
 
         const errors = this.state.error;
 
         return (
             <section>
                 <h1>All Movies</h1>
+            <div className="movie_container"> 
                 {eachMovie}
+            </div>
             </section>
         )
     }
