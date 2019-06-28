@@ -5,6 +5,7 @@ import CustomerList from './components/CustomerList';
 import Library from './components/Library';
 import Selected from './components/Selected';
 import SearchTMDB from './components/SearchTMDB';
+import Home from './components/Home';
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 
 class App extends Component {
@@ -64,6 +65,7 @@ selectedCustomerObject = (customer) => {
           <Selected showMovie={this.state.selectedMovie}
                 showCustomer={this.state.selectedCustomer} />
           </div>
+          <Route path="/home" component={Home}/>
           <Route path="/search" component={SearchTMDB}/>
           <Route path="/customers"
           render={(props) =>
@@ -81,9 +83,7 @@ selectedCustomerObject = (customer) => {
           />
         </div>
       </Router>
-      <div>
-      
-      </div>
+     
       </section>
     );
   }
