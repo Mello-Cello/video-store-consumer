@@ -46,13 +46,14 @@ class SearchTMDB extends Component {
    }
 
    onAddtoRentalButtonHandler = (movie) => {
-       // console.log(movie)
+    const slashIndex = movie.image_url.lastIndexOf('/')
+    const imageUrl = movie.image_url.slice(slashIndex, movie.image_url.length)
     const movieDataToSendToApi ={
             "movie": {
               "title": movie.title,
               "overview": movie.overview,
               "release_date": movie.release_date,
-              "image_url": movie.image_url,
+              "image_url": imageUrl,
               "external_id": movie.external_id,
               "inventory": 1
             }
