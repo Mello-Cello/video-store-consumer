@@ -101,7 +101,7 @@ class SearchTMDB extends Component {
         const successSection = (this.state.apiSuccess) ? (<section>{this.state.apiSuccess} </section>) : null;
        const errorSection = (this.state.apiError) ? (<section> Error: {this.state.apiError}</section>) : null;
     return (
-        <main>
+        <main className="movie_search">
             <h2>Movie Search Page</h2>
             <p>To find a movie by title, type the movie title in the search bar</p>
             <label>
@@ -111,7 +111,7 @@ class SearchTMDB extends Component {
                 onChange={this.onSearchChange}>
                 </input>
             </label>
-            <input type="submit" name="submit" value="Search" onClick={this.onSearchButtonHandler} />
+            <input className="most_btns"type="submit" name="submit" value="Search" onClick={this.onSearchButtonHandler} />
             {errorSection}
             {successSection}
             {eachMovie}

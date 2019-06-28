@@ -62,6 +62,26 @@ ul {
 
 }
 
-#selected_objects {
-  text-align: right;
+#selected_objects_card {
+  display: grid;
+  grid-column-end: -1;
+  align-items: right;
+  padding-top: .5em;
+  height: auto;
+  width: 18em;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.movie_search {
+  padding-top: .5em;
+  height: auto;
+  width: 35em;
+  border: 1px solid;
+  border-radius: 5px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5em;
+
 }

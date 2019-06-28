@@ -57,7 +57,7 @@ selectedCustomerObject = (customer) => {
             
             </ul>
           </nav>
-          <div> <Selected  showMovie={this.state.selectedMovie}
+          <div id="selected_objects_card"> <Selected showMovie={this.state.selectedMovie}
                 showCustomer={this.state.selectedCustomer} />
           </div>
           <Route path="/search" component={SearchTMDB}/>
