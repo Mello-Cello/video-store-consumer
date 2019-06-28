@@ -10,7 +10,7 @@ function Selected(props) {
     if (displaySelection != '' || displayCustomer != ''){
     return (
       <section>
-        <div id="selected_objects_card">
+        <div className="selected_objects_container" id="selected_objects_card">
             <h3>Customer: {displayCustomer}</h3>
             <h3>Current Movie: {displaySelection}</h3>
             </div>
