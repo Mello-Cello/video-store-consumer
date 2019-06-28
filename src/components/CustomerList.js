@@ -21,7 +21,7 @@ class CustomerList extends Component {
         const customersURL = 'http://localhost:3001/customers';
         axios.get(customersURL)
             .then((response) => {
-                console.log(response.data);
+                // console.log(response.data);
                 const customers = response.data.map((custInfo) => {
                   // const { name, registered_at, address, city, state, postal_code, phone, account_credit } = custInfo;
                     return {
