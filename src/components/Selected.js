@@ -68,7 +68,7 @@ const handleSubmitRental = (customer, movie) => {
         <div className="selected_objects_container" id="selected_objects_card">
             <h3>Customer: {displayCustomer}</h3>
             <h3>Current Movie: {displaySelection}</h3>
-            <button onClick={()=>handleSubmitRental(displayCustomerId, displaySelection)}>
+            <button className="most_btns" onClick={()=>handleSubmitRental(displayCustomerId, displaySelection)}>
               check out
             </button>
             </div>
