@@ -14,7 +14,8 @@ console.log('props in return in selected are ', props)
 
 // ********* FIX THIS *******************************************
 const handleSubmitRental = (customer, movie) => {
-  const todayDate = new Date();
+  // const todayDate = new Date();
+  console.log(customer)
    const rentalDataToSendToApi ={
       "title": movie,
       "customer_id": customer,
@@ -22,15 +23,15 @@ const handleSubmitRental = (customer, movie) => {
     }
 
    axios.post('http://localhost:3001/rentals/' + displaySelection + '/check-out', rentalDataToSendToApi)
-  //  .then((response) => {
-  //    console.log(response)
-  //    if (response.data.movie) {
-  //      // ***** CHECK ALL OF THIS AGAINST THE ACTUAL API RESPONSE!!! ****
-  //      const successMessage =
-  //      `Succesfully checked out movie ${response.data.movie_id} to cutomer ${response.data.customer_id}`
-  //      this.setState({
-  //          apiSuccess: successMessage
-  //      })
+   .then((response) => {
+     console.log(response)
+     // if (response.data) {
+     //   // ***** CHECK ALL OF THIS AGAINST THE ACTUAL API RESPONSE!!! ****
+     //   const successMessage =
+     //   `Succesfully checked out movie ${response.data.movie_id} to cutomer ${response.data.customer_id}`
+     //   this.setState({
+     //       apiSuccess: successMessage
+     //   })
   //    } else {
   //      const successMessage = response.data.errors
   //      this.setState({
@@ -55,6 +56,8 @@ const handleSubmitRental = (customer, movie) => {
   //         apiError: error.message
   //     })
   // });
+})
+
 }
 
 // TypeError: Cannot read property 'handleSubmitRental' of undefined

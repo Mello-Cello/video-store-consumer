@@ -38,7 +38,7 @@ selectedCustomerObject = (customer, id) => {
 
 }
   render() {
-    console.log(this.state)
+    console.log(`in App ${this.state.selectedCustomerId}`)
     return (
       <section>
 
@@ -65,7 +65,8 @@ selectedCustomerObject = (customer, id) => {
           <div  >
 
           <Selected showMovie={this.state.selectedMovie}
-                showCustomer={this.state.selectedCustomer} />
+                showCustomer={this.state.selectedCustomer}
+                showCustomerId={this.state.selectedCustomerId}/>
           </div>
           <Route path="/home" component={Home}/>
           <Route path="/search" component={SearchTMDB}/>
