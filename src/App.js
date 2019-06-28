@@ -59,7 +59,7 @@ selectedCustomerObject = (customer) => {
             </ul>
           </nav>
         
-          <div > 
+          <div  > 
           
           <Selected showMovie={this.state.selectedMovie}
                 showCustomer={this.state.selectedCustomer} />

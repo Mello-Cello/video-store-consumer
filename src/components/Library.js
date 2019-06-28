@@ -58,10 +58,7 @@ class Library extends Component {
             <img src={movie.image_url} alt="movie image" className="movie_IMG" />
             
                 <li id="title" className="movie_info">{movie.title} </li> 
-                <li>Released: {movie.release_date}</li>
-                
-                {/* <li className="movie_info">About:{movie.overview}</li> */}
-            
+                <li>Released: {movie.release_date}</li>           
                 <button className="most_btns" onClick={()=>this.handleMovieSelection(movie)}> Select Movie </button>
             </ul>
            </div>
@@ -80,8 +77,6 @@ class Library extends Component {
             </section>
         )
     }
-
-
 
 }
 export default Library;

@@ -88,13 +88,13 @@ class SearchTMDB extends Component {
         const eachMovie = this.state.searchResults.map((movie, i) => {
             return (
                 <div key={i}>
-                    <article key={i}>
-                        <p >{movie.title}</p>
+                    <section className="movie_search_card" key={i}>
+                        <img src={movie.image_url} alt="movie image" className="movie_IMG" />
                         <button
                         onClick={() => {this.onAddtoRentalButtonHandler(movie)}}>
-                            Add To Rental Library
+                            Add: {movie.title}
                         </button>
-                    </article>
+                    </section>
                 </div>
             )
         })
