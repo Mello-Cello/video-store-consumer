@@ -49,7 +49,7 @@ class CustomerList extends Component {
             this.props.selectedCustomerCallback(
                 customer.name
             );
-            console.log(customer.name)
+            console.log(customer)
         }
     render() {
        const renderedCustomers = this.state.customers.map((customer, i) => {
