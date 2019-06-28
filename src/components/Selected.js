@@ -7,18 +7,18 @@ import './Selected.css';
 function Selected(props) {
    const displaySelection = props.showMovie;
    const displayCustomer = props.showCustomer;
-    // if (props.showSelection) {
+    if (displaySelection != '' || displayCustomer != ''){
     return (
       <section>
-        <div className='SelectedObjectsWrapper'>
+        <div id="selected_objects_card">
             <h3>Customer: {displayCustomer}</h3>
             <h3>Current Movie: {displaySelection}</h3>
             </div>
       </section>
-    )
-// } else {
-//     return null
-// }
+    );
+} else {
+    return null
+}
 }
 
 export default Selected;

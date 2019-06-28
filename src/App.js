@@ -16,6 +16,7 @@ class App extends Component {
         selectedMovie: '',
         selectedCustomer: '',
         message: '',
+  
     }
 }
 //selectId function that sets state for the movie ID
@@ -46,18 +47,21 @@ selectedCustomerObject = (customer) => {
                 <Link className="navbar-brand" to="/">Home</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/search">Search Page</Link>
+                <Link className="nav-link" to="/search">Search</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/customers">Customer List</Link>
               </li>
               <li>
-                <Link className="nav-link" to="/library">Library</Link>
+                <Link className="nav-link" to="/library">Movies</Link>
               </li>
             
             </ul>
           </nav>
-          <div id="selected_objects_card"> <Selected showMovie={this.state.selectedMovie}
+        
+          <div > 
+          
+          <Selected showMovie={this.state.selectedMovie}
                 showCustomer={this.state.selectedCustomer} />
           </div>
           <Route path="/search" component={SearchTMDB}/>
