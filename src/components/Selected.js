@@ -9,6 +9,8 @@ function Selected(props) {
    const displayCustomer = props.showCustomer;
 console.log('props in return in selected are ', props)
 
+
+// ********* FIX THIS *******************************************
 const handleSubmitRental = (customer, movie) => {
    const rentalDataToSendToApi ={
       "title": movie,
@@ -53,6 +55,8 @@ const handleSubmitRental = (customer, movie) => {
 }
 
 // TypeError: Cannot read property 'handleSubmitRental' of undefined
+// *****************************************************************
+
     // if (props.showSelection) {
     return (
 
