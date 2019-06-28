@@ -8,8 +8,8 @@ class CustomerList extends Component {
     //pass in props?
     //make a variable movies = props to pull movies array from App
     //set another variable 'allmovies' and loop through map and return
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             customers: [],
@@ -21,10 +21,11 @@ class CustomerList extends Component {
         const customersURL = 'http://localhost:3001/customers';
         axios.get(customersURL)
             .then((response) => {
-                console.log(response.data);
+                // console.log(response.data);
                 const customers = response.data.map((custInfo) => {
                   // const { name, registered_at, address, city, state, postal_code, phone, account_credit } = custInfo;
                     return {
+                      id: custInfo.id,
                       name: custInfo.name,// string
                       registered_at: custInfo.registered_at, // Date
                       address: custInfo.address, // string
@@ -46,24 +47,34 @@ class CustomerList extends Component {
     }
         handleCustomerSelection = customer => {
             // const pickedMovie = this.state.movies.id
+            console.log('in handle customer selection:', customer);
             this.props.selectedCustomerCallback(
-                customer.name
+                customer.name,
+                customer.id
             );
             console.log(customer)
         }
     render() {
        const renderedCustomers = this.state.customers.map((customer, i) => {
            return (
-           <div key={i}>
-            <p>{customer.name} <button onClick={()=>this.handleCustomerSelection(customer)}>Select</button> </p>
+        
+           <div className="customer_card"key={i}>
+               <ul>
+               <li id="title" className="movie_info"> {customer.name} </li>
+            <li>{customer.address}</li>
+            <button className="most_btns" onClick={()=>this.handleCustomerSelection(customer)}>Select</button> 
+            </ul>
            </div>
+           
             )
        })
-        // const errors = this.state.error;
 
         return (
             <section>
+                <h1>Customers </h1>
+            <div className="customer_container">
                 {renderedCustomers}
+            </div>
             </section>
         )
     }
