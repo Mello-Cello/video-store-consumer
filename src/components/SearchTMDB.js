@@ -88,20 +88,20 @@ class SearchTMDB extends Component {
         const eachMovie = this.state.searchResults.map((movie, i) => {
             return (
                 <div key={i}>
-                    <article key={i}>
-                        <p >{movie.title}</p>
+                    <section className="movie_search_card" key={i}>
+                        <img src={movie.image_url} alt="movie image" className="movie_IMG" />
                         <button
                         onClick={() => {this.onAddtoRentalButtonHandler(movie)}}>
-                            Add To Rental Library
+                            Add: {movie.title}
                         </button>
-                    </article>
+                    </section>
                 </div>
             )
         })
         const successSection = (this.state.apiSuccess) ? (<section>{this.state.apiSuccess} </section>) : null;
        const errorSection = (this.state.apiError) ? (<section> Error: {this.state.apiError}</section>) : null;
     return (
-        <main>
+        <main className="movie_search">
             <h2>Movie Search Page</h2>
             <p>To find a movie by title, type the movie title in the search bar</p>
             <label>
@@ -111,7 +111,7 @@ class SearchTMDB extends Component {
                 onChange={this.onSearchChange}>
                 </input>
             </label>
-            <input type="submit" name="submit" value="Search" onClick={this.onSearchButtonHandler} />
+            <input className="most_btns"type="submit" name="submit" value="Search" onClick={this.onSearchButtonHandler} />
             {errorSection}
             {successSection}
             {eachMovie}

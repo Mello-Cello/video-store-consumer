@@ -5,6 +5,7 @@ import CustomerList from './components/CustomerList';
 import Library from './components/Library';
 import Selected from './components/Selected';
 import SearchTMDB from './components/SearchTMDB';
+import Home from './components/Home';
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
         selectedCustomer: '',
         selectedCustomerId: null,
         message: '',
+
     }
 }
 //selectId function that sets state for the movie ID
@@ -42,23 +44,30 @@ selectedCustomerObject = (customer, id) => {
 
       <Router>
         <div>
-          <nav>
-            <ul>
+          <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <ul className="navbar-nav">
               <li>
-                <Link to="/">Home</Link>
+                <Link className="navbar-brand" to="/">Home</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/search">Search</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/customers">Customer List</Link>
               </li>
               <li>
-                <Link to="/search">Search Page</Link>
+                <Link className="nav-link" to="/library">Movies</Link>
               </li>
-              <li>
-                <Link to="/customers">Customer List</Link>
-              </li>
-              <li>
-                <Link to="/library">Library</Link>
-              </li>
+
             </ul>
           </nav>
 
+          <div  >
+
+          <Selected showMovie={this.state.selectedMovie}
+                showCustomer={this.state.selectedCustomer} />
+          </div>
+          <Route path="/home" component={Home}/>
           <Route path="/search" component={SearchTMDB}/>
           <Route path="/customers"
           render={(props) =>
@@ -77,12 +86,7 @@ selectedCustomerObject = (customer, id) => {
           />
         </div>
       </Router>
-        <div>
-          <Selected showMovie={this.state.selectedMovie}
-          showCustomer={this.state.selectedCustomer}
-          showCustomerId={this.state.selectedCustomerId}
-           />
-        </div>
+
       </section>
     );
   }

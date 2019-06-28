@@ -61,10 +61,11 @@ const handleSubmitRental = (customer, movie) => {
 // *****************************************************************
 
     // if (props.showSelection) {
+    if (displaySelection != '' || displayCustomer != ''){
     return (
 
       <section>
-        <div className='SelectedObjectsWrapper'>
+        <div className="selected_objects_container" id="selected_objects_card">
             <h3>Customer: {displayCustomer}</h3>
             <h3>Current Movie: {displaySelection}</h3>
             <button onClick={()=>handleSubmitRental(displayCustomerId, displaySelection)}>
@@ -72,10 +73,10 @@ const handleSubmitRental = (customer, movie) => {
             </button>
             </div>
       </section>
-    )
-// } else {
-//     return null
-// }
+    );
+} else {
+    return null
+}
 }
 
 export default Selected;

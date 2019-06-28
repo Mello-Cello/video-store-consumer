@@ -56,16 +56,24 @@ class CustomerList extends Component {
     render() {
        const renderedCustomers = this.state.customers.map((customer, i) => {
            return (
-           <div key={i}>
-            <p>{customer.name} <button onClick={()=>this.handleCustomerSelection(customer)}>Select</button> </p>
+        
+           <div className="customer_card"key={i}>
+               <ul>
+               <li id="title" className="movie_info"> {customer.name} </li>
+            <li>{customer.address}</li>
+            <button className="most_btns" onClick={()=>this.handleCustomerSelection(customer)}>Select</button> 
+            </ul>
            </div>
+           
             )
        })
-        // const errors = this.state.error;
 
         return (
             <section>
+                <h1>Customers </h1>
+            <div className="customer_container">
                 {renderedCustomers}
+            </div>
             </section>
         )
     }
