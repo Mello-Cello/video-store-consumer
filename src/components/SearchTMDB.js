@@ -83,7 +83,6 @@ class SearchTMDB extends Component {
    }
 
    render() {
-        let today = new Date ()
         const eachMovie = this.state.searchResults.map((movie, i) => {
             return (
                 <div key={i}>

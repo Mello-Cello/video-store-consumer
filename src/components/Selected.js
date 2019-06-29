@@ -11,19 +11,21 @@ function Selected(props) {
    const displayCustomerId = props.showCustomerId;
 
 
-// ********* FIX THIS *******************************************
 const handleSubmitRental = (customer, movie) => {
-  // const todayDate = new Date();
-  console.log(customer)
+  const dueDate = new Date();
+  dueDate.setDate(dueDate.getDate()+7);
+
+  console.log(' due date is ', dueDate)
    const rentalDataToSendToApi ={
       "title": movie,
       "customer_id": customer,
-      "due_date": "2019-07-16" // CHANGE THIS TO TODAY + 7 DAYS
+      "due_date": dueDate
     }
 
    axios.post('http://localhost:3001/rentals/' + displaySelection + '/check-out', rentalDataToSendToApi)
    .then((response) => {
      console.log(response)
+// ********* FIX THIS *******************************************
      // if (response.data) {
      //   // ***** CHECK ALL OF THIS AGAINST THE ACTUAL API RESPONSE!!! ****
      //   const successMessage =

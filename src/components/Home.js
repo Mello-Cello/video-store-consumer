@@ -2,7 +2,7 @@ import React from 'react';
 import './Home.css';
 
 
-function Home(props) {
+function Home() {
 
   return (
     <div>
