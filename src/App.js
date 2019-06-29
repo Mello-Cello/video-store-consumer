@@ -21,16 +21,14 @@ class App extends Component {
 
     }
 }
-//selectId function that sets state for the movie ID
+
 selectedMovieObject = (movie) => {
-  //this.setState updates the state and re-renders
   this.setState({
     selectedMovie: movie,
   })
 
 }
 selectedCustomerObject = (customer, id) => {
-  //this.setState updates the state and re-renders
   this.setState({
     selectedCustomer: customer,
     selectedCustomerId: id
@@ -38,7 +36,6 @@ selectedCustomerObject = (customer, id) => {
 
 }
   render() {
-    console.log(`in App ${this.state.selectedCustomerId}`)
     return (
       <section>
 
@@ -47,7 +44,7 @@ selectedCustomerObject = (customer, id) => {
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <ul className="navbar-nav">
               <li>
-                <Link className="navbar-brand" to="/">Home</Link>
+                <Link className="navbar-brand" to="/home">Home</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/search">Search</Link>

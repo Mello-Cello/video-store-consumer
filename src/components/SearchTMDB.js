@@ -76,10 +76,7 @@ class SearchTMDB extends Component {
 
    })
    .catch((error) => {
-     // console.log("in catch *******");
-
        this.setState({
-
            apiError: error.message
        })
    });
@@ -91,7 +88,7 @@ class SearchTMDB extends Component {
             return (
                 <div key={i}>
                     <section className="movie_search_card" key={i}>
-                        <img src={movie.image_url} alt="movie image" className="movie_IMG" />
+                        <img src={movie.image_url} alt="movie poster" className="movie_IMG" />
                         <button
                         onClick={() => {this.onAddtoRentalButtonHandler(movie)}}>
                             Add: {movie.title}
@@ -113,7 +110,8 @@ class SearchTMDB extends Component {
                 onChange={this.onSearchChange}>
                 </input>
             </label>
-            <input className="most_btns"type="submit" name="submit" value="Search" onClick={this.onSearchButtonHandler} />
+            <input className="most_btns"type="submit" name="submit" value="Search"
+              onClick={this.onSearchButtonHandler} />
             {errorSection}
             {successSection}
             {eachMovie}

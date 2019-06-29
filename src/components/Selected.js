@@ -9,7 +9,6 @@ function Selected(props) {
    const displaySelection = props.showMovie;
    const displayCustomer = props.showCustomer;
    const displayCustomerId = props.showCustomerId;
-console.log('props in return in selected are ', props)
 
 
 // ********* FIX THIS *******************************************
@@ -19,7 +18,7 @@ const handleSubmitRental = (customer, movie) => {
    const rentalDataToSendToApi ={
       "title": movie,
       "customer_id": customer,
-      "due_date": "2019-07-16" // CHANGE THIS TO TODAY + 3 DAYS
+      "due_date": "2019-07-16" // CHANGE THIS TO TODAY + 7 DAYS
     }
 
    axios.post('http://localhost:3001/rentals/' + displaySelection + '/check-out', rentalDataToSendToApi)
@@ -39,7 +38,6 @@ const handleSubmitRental = (customer, movie) => {
   //      })
   //    }
   //
-  //
   //    const resetSelected = () => {
   //      // WRITE A CALLBACK FUNCTION TO SET STATE IN APP
   //      // PASS IN THROUGH PROPS
@@ -56,27 +54,23 @@ const handleSubmitRental = (customer, movie) => {
   //         apiError: error.message
   //     })
   // });
-})
+    })
 
-}
+  }
 
-// TypeError: Cannot read property 'handleSubmitRental' of undefined
-// *****************************************************************
+  if (displaySelection !== '' || displayCustomer !== ''){
+  return (
 
-    // if (props.showSelection) {
-    if (displaySelection != '' || displayCustomer != ''){
-    return (
-
-      <section>
-        <div className="selected_objects_container" id="selected_objects_card">
-            <h3>Customer: {displayCustomer}</h3>
-            <h3>Current Movie: {displaySelection}</h3>
-            <button className="most_btns" onClick={()=>handleSubmitRental(displayCustomerId, displaySelection)}>
-              check out
-            </button>
-            </div>
-      </section>
-    );
+    <section>
+      <div className="selected_objects_container" id="selected_objects_card">
+          <h3>Customer: {displayCustomer}</h3>
+          <h3>Current Movie: {displaySelection}</h3>
+          <button className="most_btns" onClick={()=>handleSubmitRental(displayCustomerId, displaySelection)}>
+            check out
+          </button>
+          </div>
+    </section>
+  );
 } else {
     return null
 }
